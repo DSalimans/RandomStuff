@@ -1,0 +1,32 @@
+import time
+
+def CountUp( x ):   
+    for InternalCount in range (1, x+1 ):
+        if InternalCount == x:
+            print(x, " - Stopwatch ready!")
+            MainOperation()
+        else:
+            print( InternalCount )
+            time.sleep( 1 )
+
+def CountDown( x ):
+    print( x )
+    if x == 1:
+        print("Stopwatch ready!")
+        MainOperation()
+    else:
+        time.sleep( 1 )
+        CountDown( x-1 )
+
+def MainOperation():
+    Question1 = input("\nWhat do you want to do?\n - CountUp\n - CountDown")
+    Question2 = int(input("\nHow many second do you want to count?"))
+    if Question1 == "CountUp":
+        CountUp(Question2)
+    elif Question1 == "CountDown":
+        CountDown(Question2)
+    else:
+        print("Invalid input!")
+        MainOperation()
+        
+MainOperation()
