@@ -1,0 +1,26 @@
+def FibonacciList( x ):
+    FibList = [ 0, 1 ]
+    for Count in range( 2, x+1 ):
+        FibList.append(FibList[ Count-1 ] + FibList[ Count-2 ])
+    return FibList
+
+def FibonacciNumber( x ):
+    return FibonacciList( x )[ x ]
+
+def GoldenRatio( x ):
+    FibList = FibonacciList( x )
+    return FibList[ x ] / FibList[ x-1 ]
+
+def MainOperation():
+    Question1 = input("\nWhat do you want to know? \n - Type 1 to calculate a Fibonacci number \n - Type 2 for a list of Fibonacci numbers \n - Type 3 for the Golden Ratio \n\n")
+    if Question1 == "1":
+        print(FibonacciNumber(int(input("\nWhich number do you want to calculate?\n\n"))))
+    elif Question1 == "2":
+        print(FibonacciList(int(input("\nHow many Fibonacci numbers do you want to list?\n\n"))))
+    elif Question1 == "3":
+        print(GoldenRatio(int(input("\nHow accurate do you want to calculate the Golden Ratio? (Higher is better!)\n\n"))))
+    else:
+        print("\nInvalid command, try again.")
+    MainOperation()
+
+MainOperation()
