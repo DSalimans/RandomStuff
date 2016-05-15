@@ -1,0 +1,14 @@
+import time
+
+def Clock():
+    for InternalCount in range ( 1, 86401 ):
+        Seconds = InternalCount%60
+        Minutes = (InternalCount//60)%60
+        Hours = InternalCount//3600
+        time.sleep(1)
+        if InternalCount == 86400:
+            Clock() 
+        else: 
+            print(Hours,':',Minutes,':',Seconds)
+            
+Clock()
